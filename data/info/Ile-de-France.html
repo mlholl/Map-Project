@@ -1,0 +1,52 @@
+<div>
+    Welcome to Ile-de-France
+    <img src="">
+    <p>The twelve regions of France are:
+        <ol>
+            <li>Montagne de Reims</li>
+            <li>Cotes des Blancs</li>
+        </ol>
+        </p>
+        <canvas id="ile_deFranceChart"></canvas>
+
+    <div id="ile_deFranceQuiz">
+        <p>Please select your favorite Web language:</p>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+    </div>
+</div>
+
+<script>
+    //function onPageLoad() {
+        const ctx = document.getElementById('ile_deFranceChart');
+        new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 100],
+                backgroundColor: [
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
+    //}
+</script>

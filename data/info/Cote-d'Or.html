@@ -1,0 +1,136 @@
+<div>
+    <img src="/data/assets/cote_dor_beaune_2.png">
+    <h3>Welcome to Cote-d'Or!</h3>
+    <p>The two sub-regions of Cote-d'Or are:
+        <ol>
+            <li>Cote de Nuits (north)</li>
+            <li>Cote de Beaune (south)</li>
+        </ol>
+    </p>
+    <p>The narrow region is only 31 miles long and is located in the Burgundy region of France. It is home to a population of a little over 500,000 people.</p>
+    
+    <p>While most of the white wines produced in the Cote-d'Or are made from 100% Chardonnay grapes, the red grape, Gamay, is exclusive to Beaujolais. In the Cote-d'Or, the main red grape used to produce red wines is the one and only Pinot Noir.</p>
+    <canvas id="cotedOrChart"></canvas>
+
+    <div id="cotedOr_Quiz">
+        <p>True or False: Cote-d'Or means the 'Gold Region' ? :</p>
+          <input type="radio" name="q1" value="true">
+          <label for="true">True</label><br>
+          <input type="radio" name="q1" value="false">
+          <label for="false">False</label><br>
+
+        <p>What percent of the Cote-de Nuits region consists of red grapes? :</p>
+          <input type="radio" name="q2" value="a1">
+          <label for="a1">20%</label><br>
+          <input type="radio" name="q2" value="a2">
+          <label for="a2">70%</label><br>
+        <input type="radio" name="q2" value="a3">
+          <label for="a3">90%</label><br>
+
+        <button onclick="checkAnswer(2, ['true', 'a3'])">Submit</button>
+        <p id="quizResult"></p>
+    </div>
+    <!-- <canvas id="cote_dorChart"></canvas>
+
+    <div id="cote_dorQuiz">
+        <p>Please select your favorite Web language:</p>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+    </div> -->
+</div>
+
+<script>
+    //function onPageLoad() {
+        const ctx = document.getElementById('cotedOrChart');
+        new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Cote de Beaune',
+                'Cote de Nuits',
+            ],
+            datasets: [{
+                label: 'Sub-Region of Cote-dOr',
+                data: [40, 30],
+                // backgroundColor: [
+                // 'rgb(255, 99, 132)',
+                // 'rgb(54, 162, 235)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)'
+                // ],
+                hoverOffset: 8
+            }]
+        },
+        // options: {
+        //     scales: {
+        //     y: {
+        //         beginAtZero: true
+        //     }
+        //     }
+        // }
+        });
+    //}
+    function checkAnswer(totalQuestions, answers) {
+        let totalCorrect = 0
+        for (let i = 1; i <= totalQuestions; i = i+1) {
+            let element = document.querySelector('input[name="q'+i+'"]:checked')
+            if (element.value == answers[i-1]) {
+                totalCorrect = totalCorrect + 1
+            } else {
+            }
+        }
+        document.getElementById("quizResult").innerHTML="You got "+totalCorrect+"/"+totalQuestions+" correct!"
+
+        // if (questionNumber == 1) {
+        //     let element = document.querySelector('input[name="french_regions"]:checked')
+        //     if (element.value == "false") {
+        //         document.getElementById("quizResult").innerHTML="CORRECT!"
+        //     } else {
+        //         document.getElementById("quizResult").innerHTML="Your answer is Incorrect. Try Again!"
+        //     }
+        // }
+    } 
+    return checkAnswer
+</script>
+<!-- <script>
+    //function onPageLoad() {
+        const ctx = document.getElementById('cote_dorChart');
+        new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 100],
+                backgroundColor: [
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
+    //}
+</script> -->

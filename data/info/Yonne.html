@@ -1,0 +1,38 @@
+<div>
+    <img src="/data/assets/yonne_2.jpeg">
+    <h2>Welcome to Yonne!</h2>
+    <p>The three districts of Yonne are:
+        <ol>
+            <li>Auxerre</li>
+            <li>Avallon</li>
+            <li>Sens</li>
+        </ol>
+    </p>
+    <p>Yonne is home to the Chablis region of Burgundy, a small town in north-central France. It is located in the valley of the River Serein.</p>
+        
+    <div id="yonne_Quiz">
+        <p>True or False: France is comprised of 10 geographical regions? :</p>
+            <input type="radio" name="q1" value="true">
+            <label for="true">True</label><br>
+            <input type="radio" name="q1" value="false">
+            <label for="false">False</label><br>
+    
+            <button onclick="checkAnswer(1)">Submit</button>
+        <p id="quizResult"></p>
+    </div>
+</div>
+
+<script>
+    function checkAnswer(totalQuestions) {
+        let totalCorrect = 0
+        if (questionNumber == 1) {
+            let element = document.querySelector('input[name="q1"]:checked')
+            if (element.value == "false") {
+                document.getElementById("quizResult").innerHTML="CORRECT!"
+            } else {
+                document.getElementById("quizResult").innerHTML="Your answer is Incorrect. Try Again!"
+            }
+        }
+    }
+    return checkAnswer
+</script>

@@ -1,0 +1,102 @@
+<div>
+    <h3>Welcome to France</h3>
+    <img src="">
+    <p>The twelve regions of France are:
+        <ol>
+            <li>Montagne de Reims</li>
+            <li>Cotes des Blancs</li>
+        </ol>
+    </p>
+    <canvas id="franceChart"></canvas>
+
+    <div id="france_Quiz">
+        <p>True or False: France is comprised of 10 geographical regions? :</p>
+          <input type="radio" name="q1" value="true">
+          <label for="true">True</label><br>
+          <input type="radio" name="q1" value="false">
+          <label for="false">False</label><br>
+
+        <p>What is the capital of France? :</p>
+          <input type="radio" name="q2" value="a1">
+          <label for="a1">Normandy</label><br>
+          <input type="radio" name="q2" value="a2">
+          <label for="a2">Paris</label><br>
+        <input type="radio" name="q2" value="a3">
+          <label for="a3">Provence</label><br>
+
+        <button onclick="checkAnswer(2, ['false', 'a2'])">Submit</button>
+        <p id="quizResult"></p>
+    </div>
+</div>
+
+<script>
+    //function onPageLoad() {
+        const ctx = document.getElementById('franceChart');
+        new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '10',
+                '11',
+                '12'
+            ],
+            datasets: [{
+                label: 'Regions of France',
+                data: [150, 50, 100, 40, 80, 15, 20, 5, 45, 18, 25, 10],
+                // backgroundColor: [
+                // 'rgb(255, 99, 132)',
+                // 'rgb(54, 162, 235)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)',
+                // 'rgb(255, 205, 86)'
+                // ],
+                hoverOffset: 5
+            }]
+        },
+        // options: {
+        //     scales: {
+        //     y: {
+        //         beginAtZero: true
+        //     }
+        //     }
+        // }
+        });
+    //}
+    function checkAnswer(totalQuestions, answers) {
+        let totalCorrect = 0
+        for (let i = 1; i <= totalQuestions; i = i+1) {
+            let element = document.querySelector('input[name="q'+i+'"]:checked')
+            if (element.value == answers[i-1]) {
+                totalCorrect = totalCorrect + 1
+            } else {
+            }
+        }
+        document.getElementById("quizResult").innerHTML="You got "+totalCorrect+"/"+totalQuestions+" correct!"
+
+        // if (questionNumber == 1) {
+        //     let element = document.querySelector('input[name="french_regions"]:checked')
+        //     if (element.value == "false") {
+        //         document.getElementById("quizResult").innerHTML="CORRECT!"
+        //     } else {
+        //         document.getElementById("quizResult").innerHTML="Your answer is Incorrect. Try Again!"
+        //     }
+        // }
+    } 
+    return checkAnswer
+</script>
